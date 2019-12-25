@@ -35,12 +35,17 @@ M['textDocument/publishDiagnostics'] = function(_, _, result)
   -- util.set_loclist(result.diagnostics)
 end
 
-M['textDocument/references'] = function(_, _, result)
+local function list_callback(_, method, result)
   if not result then return end
   util.set_qflist(result)
   api.nvim_command("copen")
   api.nvim_command("wincmd p")
 end
+
+M['textDocument/references'] = list_callback
+M['textDocument/documentSymbol'] = list_callback
+M['workspace/symbol'] = list_callback
+M['textDocument/documentHighlight'] = list_callback
 
 M['textDocument/rename'] = function(_, _, result)
   if not result then return end
@@ -105,9 +110,6 @@ M['textDocument/declaration'] = location_callback
 M['textDocument/definition'] = location_callback
 M['textDocument/typeDefinition'] = location_callback
 M['textDocument/implementation'] = location_callback
-M['textDocument/documentSymbol'] = location_callback
-M['workspace/workspaceSymbol'] = location_callback
-M['textDocument/documentHighlight'] = location_callback
 
 --- Convert SignatureHelp response to preview contents.
 -- https://microsoft.github.io/language-server-protocol/specifications/specification-3-14/#textDocument_signatureHelp

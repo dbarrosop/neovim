@@ -139,7 +139,7 @@ end
 
 function M.workspace_symbol()
   local params = util.make_position_params()
-  request('workspace/workspaceSymbol', params)
+  request('workspace/symbol', params)
 end
 
 function M.highlight()
