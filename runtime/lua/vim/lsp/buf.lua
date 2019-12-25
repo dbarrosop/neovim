@@ -132,5 +132,21 @@ function M.references(context)
   request('textDocument/references', params)
 end
 
+function M.document_symbol()
+  local params = util.make_position_params()
+  request('textDocument/documentSymbol', params)
+end
+
+function M.workspace_symbol()
+  local params = util.make_position_params()
+  request('workspace/workspaceSymbol', params)
+end
+
+function M.highlight()
+  local params = util.make_position_params()
+  request('textDocument/documentHighlight', params)
+end
+
+
 return M
 -- vim:sw=2 ts=2 et

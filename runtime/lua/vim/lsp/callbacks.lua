@@ -105,6 +105,9 @@ M['textDocument/declaration'] = location_callback
 M['textDocument/definition'] = location_callback
 M['textDocument/typeDefinition'] = location_callback
 M['textDocument/implementation'] = location_callback
+M['textDocument/documentSymbol'] = location_callback
+M['workspace/workspaceSymbol'] = location_callback
+M['textDocument/documentHighlight'] = location_callback
 
 --- Convert SignatureHelp response to preview contents.
 -- https://microsoft.github.io/language-server-protocol/specifications/specification-3-14/#textDocument_signatureHelp
