@@ -133,13 +133,11 @@ function M.references(context)
 end
 
 function M.document_symbol()
-  local params = util.make_position_params()
-  request('textDocument/documentSymbol', params)
+  request('textDocument/documentSymbol')
 end
 
 function M.workspace_symbol()
-  local params = util.make_position_params()
-  request('workspace/symbol', params)
+  request('workspace/symbol')
 end
 
 function M.highlight()
